@@ -122,4 +122,12 @@ async function promptQuestions() {
 }
 promptQuestions();
 
+// adding the create team function to generate the page
+function createTeam() {
+    console.log("new member", buildTeam)
+    fs.writeFileSync("./output/index.html",
+    generateTeam(buildTeam),
+    "utf-8"
+    );
+}
 
