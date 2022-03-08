@@ -1,4 +1,4 @@
-onst Manager = require('../lib/Manager');
+const Manager = require('../lib/Manager');
 const manager = new Manager( 'Alex', '5891024','alexrodiguez19@gmail.com','502-546-2234');
 
 // test for the Manager parameters
