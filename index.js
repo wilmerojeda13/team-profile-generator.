@@ -8,10 +8,10 @@ const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 const generateTeam = require("./src/pageTEmplate");
 
-//Array for answer and question
+// Array for answer and question .
 const buildTeam = [];
 
-//Create questions asked for the user
+// Created questions asked for the user.
 const questions =  async () => {
     const answers = await inquirer
     .prompt([
@@ -38,3 +38,4 @@ const questions =  async () => {
         },
 
     ])
+}
