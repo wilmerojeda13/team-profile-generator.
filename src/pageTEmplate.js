@@ -57,7 +57,7 @@ const generateTeam = (team) => {
      `
     };
 
-    // We create an empty array to generate and push each role
+    // We create an empty variable array to generate and push each role
     const html = [];
 
     html.push(
@@ -80,3 +80,42 @@ const generateTeam = (team) => {
   
     return html.join("");
   };
+
+  //export the function to generate entire html
+  module.exports = (team) => {
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>My profile Generator</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet"/>
+    </head>
+    
+    <body>
+         
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12  jumbotron mb-3 team-heading">
+                    <h1 class="text-center">My Team</h1>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container my-lg-5">
+            <div class="row">
+                <div class=" col-12 team-area d-flex justify-content-center">
+                ${generateTeam(team)}
+          </div>      
+      </div>
+  </div>
+  </body>
+  </html>
+      `;
+  };
+   
