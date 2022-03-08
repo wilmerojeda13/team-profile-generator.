@@ -1,6 +1,17 @@
 {
-  "dependencies": {
-    "inquirer": "^8.2.0",
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Profile Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Wilmer",
+  "license": "ISC",
+  "devDependencies": {
     "jest": "^27.5.1"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.0"
   }
 }

@@ -38,4 +38,67 @@ const questions =  async () => {
         },
 
     ])
-}
+
+
+    //console log the answers for the user
+    // if manager selected answer this questions
+    if (answers.role === "Manager") {
+        const managerAnswers = await inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "officeNumber",
+                message: "What is the office number"
+            
+            },
+        ])
+
+        const newManager = new Manager(
+            answers.name,
+            answers.id,
+            answers.email,
+            managerAnswers.officeNumber
+        );
+        buildTeam.push(newManager);
+
+        // if engineer selected this answers
+    } else if (answers.role === "Engineer") {
+        const githubAnswers = await inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "github",
+                message: "What is the Github username"
+            }
+        ])
+    
+        const newEngineer = new Engineer(
+            answers.name,
+            answers.id,
+            answers.email,
+            githubAnswers.github
+        );
+        buildTeam.push(newEngineer);
+    
+        //if intern is selected answers this questions
+
+    } else if (answers.role === "Intern") {
+        const internAnswers = await inquirer 
+        .prompt([
+            {
+                type: "input",
+                name: "school",
+                message: "What university did you go to?",
+            }
+        ])
+
+        const newIntern = new Intern(
+            answers.name,
+            answers.id,
+            answers.email,
+            internAnswers.school
+        );
+        buildTeam.push(newIntern);
+    }
+}; //End of the questions
+
