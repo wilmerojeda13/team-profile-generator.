@@ -6,7 +6,7 @@ const fs = require('fs');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-const generateTeam = require("./src/pageTEmplate");
+
 
 // Array for answer and question .
 const buildTeam = [];
@@ -101,4 +101,25 @@ const questions =  async () => {
         buildTeam.push(newIntern);
     }
 }; //End of the questions
+async function promptQuestions() {
+    await questions()
+
+    const addMemeberAnswers = await inquirer
+    .prompt([
+        {
+            name:'addMember',
+            type:'list',
+            choices: ['Add a member', 'Create team'],
+            message: "What would you like to do next"
+        }
+    ])
+
+    if (addMemeberAnswers.addMember === 'Add a member') {
+        return promptQuestions()
+    }
+    return createTeam();
+
+}
+promptQuestions();
+
 
